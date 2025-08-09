@@ -1,7 +1,7 @@
-
 from flask import Flask, request, jsonify
 from pydantic import ValidationError
 import mysql.connector
+from werkzeug.security import generate_password_hash
 
 from helpers.validations import SignupModel
 
@@ -27,6 +27,7 @@ def signup():
         data = SignupModel(**request.get_json())
         username = data.username
         password = data.password
+        hashed_password = generate_password_hash(password)
 
         # check if username already exist
         conn = get_db_connection()
@@ -44,7 +45,7 @@ def signup():
 
         cursor.execute(
             "INSERT INTO tbl_user (username, password) VALUES (%s, %s)",
-            (username, password,)
+            (username, hashed_password,)
         )
         conn.commit()
         cursor.close()
