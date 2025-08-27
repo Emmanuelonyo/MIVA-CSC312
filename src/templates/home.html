@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>School Spa - Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bs-primary: #0c3c68;
+        --miva-red: #d4372f;
+        --miva-brown: #b0947f;
+      }
+
+      .btn-primary,
+      .bg-primary,
+      .navbar,
+      footer {
+        background-color: var(--bs-primary) !important;
+        border-color: var(--bs-primary) !important;
+      }
+      .btn-primary:hover {
+        background-color: var(--miva-red) !important;
+        border-color: var(--miva-red) !important;
+      }
+      .navbar-dark .navbar-nav .nav-link:hover {
+        color: var(--miva-red) !important;
+      }
+
+      header.bg-hero {
+        position: relative;
+        background: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1470&q=80")
+          no-repeat center center/cover;
+        height: 100vh;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 1rem;
+      }
+
+      header.bg-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(
+          12,
+          60,
+          104,
+          0.75
+        );
+        z-index: 0;
+      }
+
+      header.bg-hero .container {
+        position: relative;
+        z-index: 1;
+        max-width: 700px;
+      }
+
+      .service-card {
+        border: 2px solid var(--miva-brown);
+        border-radius: 8px;
+        padding: 2rem;
+        transition: box-shadow 0.3s ease;
+        background-color: white;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .service-card:hover {
+        box-shadow: 0 8px 20px rgba(212, 55, 47, 0.4);
+        border-color: var(--miva-red);
+      }
+
+      footer p {
+        margin: 0;
+        font-weight: 500;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      main {
+        flex: 1;
+      }
+
+      #about {
+        padding: 5rem 0;
+      }
+      #about img {
+        max-width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(12, 60, 104, 0.3);
+      }
+
+      #testimonials {
+        background-color: var(--miva-brown);
+        color: white;
+        padding: 4rem 0;
+      }
+      .testimonial {
+        background: rgba(255 255 255 / 0.15);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+      .testimonial img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-right: 1rem;
+        border: 2px solid white;
+      }
+
+      #contact form input,
+      #contact form textarea {
+        border: 2px solid var(--miva-brown);
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        margin-bottom: 1rem;
+        resize: none;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      #contact form input:focus,
+      #contact form textarea:focus {
+        border-color: var(--miva-red);
+        outline: none;
+        box-shadow: 0 0 5px var(--miva-red);
+      }
+
+      #contact .row {
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+      #contact .col-md-6 {
+        flex: 1 1 100%;
+      }
+      @media (min-width: 768px) {
+        #contact .col-md-6 {
+          flex: 1 1 45%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img
+            src="{{ url_for('static', filename='assets/logo.png') }}"
+            alt="Logo"
+            width="40"
+            height="40"
+            class="me-2"
+          />
+          Miva Software Hub
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Programs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-hero">
+      <div class="container">
+        <h1 class="display-4 fw-bold">Welcome to Miva Software Hub</h1>
+        <p class="lead mb-4">
+          Empowering future developers with hands-on learning and real-world
+          projects.
+        </p>
+        <a href="#" class="btn btn-primary btn-lg px-5"
+          >Get Started</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <!-- Our Programs -->
+      <section class="py-5">
+        <div class="container">
+          <h2 class="mb-4 text-center" style="color: var(--bs-primary)">
+            Our Software Development Programs
+          </h2>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="service-card shadow-sm">
+                <h5 class="text-primary">Web Development</h5>
+                <p>
+                  Learn front-end and back-end development, mastering HTML, CSS,
+                  JavaScript, and modern frameworks.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-card shadow-sm">
+                <h5 class="text-primary">Mobile App Development</h5>
+                <p>
+                  Create native and cross-platform mobile apps using
+                  technologies like Flutter and React Native.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-card shadow-sm">
+                <h5 class="text-primary">Software Engineering</h5>
+                <p>
+                  Understand software design principles, version control,
+                  testing, and deployment workflows.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Us -->
+      <section id="about" class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <img src="{{ url_for('static', filename='assets/about.png') }}" alt="Map Location" class="rounded" />
+          </div>
+          <div class="col-md-6">
+            <h2 style="color: var(--bs-primary)">About Us</h2>
+            <p>
+              At Miva Software Hub, we provide students with practical training
+              in software development, fostering creativity and teamwork through
+              real-world projects and expert mentorship.
+            </p>
+            <p>
+              Our goal is to empower the next generation of developers with the
+              skills and confidence they need to thrive in the tech industry.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="text-center">
+        <div class="container">
+          <h2 class="mb-5">What Our Students Say</h2>
+          <div class="row justify-content-center">
+            <!-- Student 1 -->
+            <div class="col-md-4">
+              <div class="testimonial d-flex align-items-center">
+                <img
+                  src="{{ url_for('static', filename='assets/profile.png') }}"
+                  alt="Profile Icon"
+                  class="rounded-circle me-3"
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    object-fit: cover;
+                    opacity: 0.7;
+                  "
+                />
+                <div>
+                  <p>
+                    "Learning software development here has opened doors for me.
+                    The instructors made everything so practical and relatable."
+                  </p>
+                  <strong>- Chinelo Okafor</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Student 2 -->
+            <div class="col-md-4">
+              <div class="testimonial d-flex align-items-center">
+                <img
+                  src="{{ url_for('static', filename='assets/profile.png') }}"
+                  alt="Profile Icon"
+                  class="rounded-circle me-3"
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    object-fit: cover;
+                    opacity: 0.7;
+                  "
+                />
+                <div>
+                  <p>
+                    "The hands-on training gave me the skills I needed to land
+                    an internship in Lagos. Highly recommended!"
+                  </p>
+                  <strong>- Ifeanyi Adewale</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Student 3 -->
+            <div class="col-md-4">
+              <div class="testimonial d-flex align-items-center">
+                <img
+                  src="{{ url_for('static', filename='assets/profile.png') }}"
+                  alt="Profile Icon"
+                  class="rounded-circle me-3"
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    object-fit: cover;
+                    opacity: 0.7;
+                  "
+                />
+                <div>
+                  <p>
+                    "I loved working on real projects with my classmates. It
+                    made learning to code fun and meaningful!"
+                  </p>
+                  <strong>- Zainab Musa</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Us -->
+      <section id="contact" class="py-5">
+        <div class="container">
+          <h2 class="mb-4 text-center" style="color: var(--bs-primary)">
+            Contact Us
+          </h2>
+          <div class="row g-4">
+            <div class="col-md-6 order-md-1">
+              <form>
+                <input type="text" placeholder="Full Name" required />
+                <input type="email" placeholder="Email Address" required />
+                <input type="tel" placeholder="Phone Number" />
+                <textarea
+                  rows="4"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+                <button type="submit" class="btn btn-primary w-100">
+                  Send Message
+                </button>
+              </form>
+            </div>
+            <div class="col-md-6 order-md-2">
+              <img
+                src="{{ url_for('static', filename='assets/contact.jpg') }}"
+                alt="Map Location"
+                class="img-fluid rounded"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center py-3 mt-auto">
+      <p>© 2025 Miva Software Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from pydantic import ValidationError
 import mysql.connector
 from werkzeug.security import generate_password_hash
@@ -18,8 +18,12 @@ db_config = {
 def get_db_connection():
     return mysql.connector.connect(**db_config)
 @app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
+def index():  # put application's code here
+    return render_template('index.html')
+
+@app.route('/home')
+def home():
+    return render_template('home.html')
 
 @app.route('/api/signup', methods=['POST'])
 def signup():
